@@ -206,6 +206,22 @@ class PWMHandle
      * before use. */
     inline Channel &Channel4() { return ch4_; };
 
+    /** @brief Return a reference to a given channel of this peripheral.
+     * Must be initialized before use.
+     * @param ch: Channel in the range [1, 4]
+     */
+    inline Channel &GetChannel(size_t ch)
+    {
+        switch(ch)
+        {
+            case 1: return ch1_;
+            case 2: return ch2_;
+            case 3: return ch3_;
+            case 4: return ch4_;
+            default: return ch1_;
+        }
+    }
+
     /** @brief Set the prescaler */
     void SetPrescaler(uint32_t prescaler);
 
